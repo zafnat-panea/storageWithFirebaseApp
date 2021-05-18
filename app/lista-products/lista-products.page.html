@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="back-arrow-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Listado de Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="items" class="list-mini-content" padding>
+  <div *ngIf="items.length > 0" class="list-mini">
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-thumbnail slot="start">
+          <img alt="" [src]="item.image">
+        </ion-thumbnail>
+        <ion-label>{{item.name}}</ion-label>
+        <ion-label>{{item.description}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="empty-list" *ngIf="items.length == 0">
+    No tiene ningún producto creado.
+  </div>
+</ion-content>
